@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+    </style>
+</head>
+
+<body ng-app="index" ng-controller="test">
+{{a}} <br>
+{{a|rule}}
+
+
+
+
+
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<script>
+var app=angular.module('index',[]);
+    app.filter('rule',function(){
+        return function(text){
+            return text.replace(/\w+/g,function(s){
+                return s.charAt(0).toUpperCase()+ s.substring(1);
+            })
+        }
+    })
+
+    app.controller('test',function($scope){
+        $scope.a="hello angular"
+    })
+
+</script>
+
+
+
+</body>
+</html>
