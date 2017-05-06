@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <style>
+        *{
+            margin:0; padding:0;
+        }
+        #wrap{
+            width:500px; height:20px;
+            background:#ccc;
+            border-radius:5px;
+            margin-left:10px;
+            position:relative;
+        }
+        #inner{
+            width:0px;
+            height:20px;
+            background:green;
+            position:absolute;
+            left:0; top:0;
+            border-radius:5px;
+        }
+    </style>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+输入0-100的数字
+<input type="text" id="txt1">
+<input type="button" value="click" id="btn">
+<br><br><br><br>
+<div id="wrap">
+    <div id="inner"></div>
+</div>
+
+<script>
+    $('#btn').click(function(){
+        var len=$('#txt1').val();
+        if(len<0 || len>100) return;
+        len=parseFloat(len)*5;
+        $('#inner').animate({'width':len},'norma');
+    })
+
+
+
+</script>
+</body>
+</html>
