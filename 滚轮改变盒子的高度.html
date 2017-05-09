@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <style>
+
+*{
+    margin:0; padding:0; list-style:none;
+}
+        #div1{
+            width:200px; height:100px; background:#ccc;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<div id="div1"></div>
+
+
+<script>
+
+
+</script>
+<script>
+
+
+    var oDiv = document.querySelector('#div1');
+    addMouseWheel(oDiv);
+
+    function addMouseWheel(obj) {
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
+            obj.addEventListener('DOMMouseScroll', fnWheel, false);
+        } else {
+            obj.onmousewheel = fnWheel;
+        }
+    }
+
+
+    function fnWheel(ev) {
+        var oEvt = ev || window.event;
+        var down = false;
+        if (oEvt.wheelDelta) {
+            if (oEvt.wheelDelta < 0) {
+                down = true;
+            } else {
+                down = false;
+            }
+        } else if (oEvt.detail) {
+            if (oEvt.detail > 0) {
+                down = true;
+            } else {
+                down = false;
+            }
+        }
+
+        if(down){
+            oDiv.style.height=oDiv.offsetHeight+10+'px';
+        } else {
+            oDiv.style.height=oDiv.offsetHeight-10+'px';
+            if(oDiv.offsetHeight<=100) {
+                oDiv.style.height=100+'px';
+            }
+        }
+
+        console.log(oDiv.offsetHeight);
+
+    }
+
+
+</script>
+</body>
+</html>
