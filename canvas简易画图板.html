@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: "微软雅黑", "张海山锐线体简";
+}
+body{
+	background:#000;
+	text-align:center;
+}  
+#c1{
+	background:#fff;
+}
+
+</style>
+</head>
+<body>
+<canvas id="c1" width="800" height="500">
+	浏览器版本过低
+</canvas>
+
+<script>
+var oC=document.querySelector('#c1');
+var gd=oC.getContext('2d');
+oC.onmousedown=function(ev){
+	var ev=ev||window.event;
+	gd.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+	document.onmousemove=function(ev){
+		var ev=ev||event;
+		gd.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+		gd.stroke();
+	}
+	document.onmouseup=function(){
+		document.onmouseup=null;
+		document.onmousemove=null;
+	}
+}
+</script>
+</body>
+</html>
