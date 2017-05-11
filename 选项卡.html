@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1 .active { background:yellow;}
+        #div1 div { width:250px; height:200px; background:#ccc; display:none;}
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="div1">
+    <input class="active" type="button" value="内地" />
+    <input type="button" value="韩剧" />
+    <input type="button" value="日剧" />
+    <input type="button" value=" 美剧" />
+    <div style="display:block;">内地</div>
+    <div>韩剧</div>
+    <div>日剧</div>
+    <div>美剧</div>
+</div>
+
+
+<script>
+var oDiv=document.getElementById('div1');
+    var aBtn=oDiv.getElementsByTagName('input');
+    var aDiv=oDiv.getElementsByTagName('div');
+//   for(var i=0; i<aBtn.length; i++){
+//       aBtn[i].index=i;
+//
+//       aBtn[i].onclick=function(){
+//           console.log(this.index);
+//           for(var i=0; i<aBtn.length; i++){
+//               aBtn[i].className='';
+//               aDiv[i].style.display='none';
+//           }
+//           this.className='active';
+//           aDiv[this.index].style.display='block';
+//       }
+//   }
+
+
+
+    //闭包
+    for(var i=0; i<aBtn.length; i++){
+        (function(index){
+            aBtn[index].onclick=function(){
+                for(var i=0; i<aBtn.length; i++){
+                    aBtn[i].className='';
+                    aDiv[i].style.display='none';
+                }
+                //this.className='active';
+                aBtn[index].className='active';
+                aDiv[index].style.display='block';
+            }
+        })(i);
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

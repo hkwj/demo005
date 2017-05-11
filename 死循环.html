@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+      div{
+          float:left;
+          width:100px; height:100px;
+          border:1px solid #000;
+          margin:10px;
+          background:#ccc;
+      }
+
+
+    </style>
+</head>
+<body>
+
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+function foo(){
+    function bar(){
+        i=3;
+        console.log(i);
+    }
+    for(var i=0; i<10; i++){
+        bar(i*2);
+    }
+}
+
+    foo();
+
+
+
+</script>
+
+</body>
+</html>
