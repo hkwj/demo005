@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <style>
+
+*{
+    margin:0; padding:0; list-style:none;
+}
+        #div1{
+            width:200px; height:100px; background:#ccc;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<input type="text" value="0" id="t1">
+
+
+<script>
+
+
+</script>
+<script>
+
+
+    var oT1=document.getElementById('t1');
+    addMouseWheel(oT1,function(down){
+        if(down){
+            oT1.value++;
+        } else {
+            oT1.value--;
+        }
+    })
+
+
+    function addMouseWheel(obj,fn){
+        if(navigator.userAgent.toLowerCase().indexOf('firefox')!=-1){
+            obj.addEventListener('DOMMouseScroll',fnWheel,false)
+        } else {
+            obj.onmousewheel=fnWheel;
+        }
+
+        function fnWheel(ev){
+            var oEvt=ev||event;
+            var down=false;
+            if(oEvt.wheelDelta){
+                down=oEvt.wheelDelta<0?true:false;
+            } else if(oEvt.detail){
+                down=oEvt.detail>0?true:false;
+            }
+            fn(down);
+        }
+    }
+</script>
+</body>
+</html>
