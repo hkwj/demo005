@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: "微软雅黑", "张海山锐线体简";
+} 
+div{
+	width:200px; 
+	height:200px;
+	margin:10px auto;
+	font-size:16px;
+	text-align:center;
+	line-height:200px;
+	background:#ccc;
+	animation:move 2s infinite;
+}
+
+@keyframes move{
+	0%   {border-radius:0; width:200px; height:200px; background:#ccc;}
+	25%  {border-radius:10px; width:150px; height:150px; background:yellow; line-height:150px;}
+	50%  {border-radius:20px; width:100px; height:100px; background:red; line-height:100px;}
+	75%  {border-radius:10px; width:150px; height:150px; background:yellow; line-height:150px;}
+	100% {border-radius:0; width:200px; height:200px; background:#ccc;}
+}
+
+
+</style>
+</head>
+<body>
+<div>我是div</div>
+
+</body>
+</html>
