@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+
+<style>
+#div1{
+	width:30px; height:500px; background:black;
+	position:absolute; left:10px; top:10px;
+}
+#div2{
+	width:30px; height:30px; background:red;
+	position:absolute; left:0; top:0;
+}
+#div3{
+	width:450px; height:400px; 
+	border:1px solid black; 
+	position:absolute; left:50px;
+	top:10px;
+}
+#div4{
+	position:absolute; left:0; top:0;
+}
+
+
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	var oDiv4=document.getElementById('div4');
+
+	var iMaxTop=oDiv1.offsetHeight-oDiv2.offsetHeight;
+	oDiv2.onmousedown=function(ev){
+		var ev=ev||event;
+		var disY=ev.clientY-this.offsetTop;
+		document.onmousemove=function(ev){
+			var ev=ev||event;
+			var T=ev.clientY-disY;
+			if(T<0){
+				T=0;
+			} else if(T>iMaxTop){
+				T=iMaxTop;
+			};
+
+			oDiv2.style.top=T+'px';
+			var iScale=T/iMaxTop;
+			document.title=iScale;
+			oDiv4.style.top=(oDiv3.clientHeight-oDiv4.offsetHeight)*iScale+'px';
+		};
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;
+		}
+		return false;
+	}
+}
+
+
+</script>
+</head>
+<body>
+
+<div id="div1">
+	<div id="div2"></div>
+</div>
+<div id="div3">
+	<div id="div4">
+		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>		　文库　更多»
+推荐 : 用手机随时随地上百度
+其他人还搜
+
+烤鱼
+
+脆豆腐
+
+川北凉粉
+
+鱼豆腐
+<br>
+<br>
+<br>
+	</div>
+</div>
+
+</body>
+</html> 
