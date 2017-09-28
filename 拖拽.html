@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+
+<style>
+#div1{
+	width:100px; height:100px; 
+	background:red; position:absolute;
+}
+
+</style>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	oDiv.onmousedown=function(ev){
+		var ev=ev||event;
+		var disX=ev.clientX-this.offsetLeft;
+		var disY=ev.clientY-this.offsetTop;
+		//ie拖拽文字增加全局捕获
+		if(oDiv.setCapture){
+			oDiv.setCapture();
+		};
+		document.onmousemove=function(ev){
+			var ev=ev||event;
+			oDiv.style.left=ev.clientX-disX+'px';
+			oDiv.style.top=ev.clientY-disY+'px';
+		}
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;
+			if(oDiv.releaseCapture){
+				oDiv.releaseCapture();
+			}
+		}
+		return false;
+
+	}
+}
+
+
+</script>
+</head>
+<body>
+
+有文字时的拖拽
+<div id="div1"></div>
+
+</body>
+</html> 
